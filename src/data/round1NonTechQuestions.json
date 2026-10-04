@@ -51,12 +51,12 @@
     "id": 5,
     "password": "DRAGON",
     "clues": [
-      "I am a legendary creature said to guard hidden treasures.",
-      "I appear in stories from many different cultures.",
+      "I am a legendary creature said to guard hidden treasures",
+      " I appear in stories from many different cultures.",
       "I am often depicted with wings and scales.",
-      "I can breathe fire in many Western legends.",
-      "Knights in fantasy stories often fight me.",
-      "I am a mythical fire-breathing creature."
+      "Knights in fantasy stories often fight me",
+      "In many Western legends, I can breathe fire.",
+      "My password has 6 letters and is a famous mythical creature, often shown as a large, winged, fire-breathing reptile."
     ]
   }
 ]
