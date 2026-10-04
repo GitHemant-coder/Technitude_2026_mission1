@@ -28,20 +28,20 @@ export default function BriefingScreen({ crewName, onStartMission, onReset }) {
           alt="TECHNITUDE 2026 - Lost Treasure of Legacy - Mission 1 Rule Book"
           className="rb-poster-img"
         />
+      </div>
 
-        {/* Interactive START MISSION 1 Button Overlay anchored at bottom */}
-        <div className="rb-poster-action-overlay">
-          <button
-            id="start-mission-btn"
-            onClick={handleStart}
-            className="rb-start-mission-poster-btn"
-            aria-label="Start Mission 1"
-            type="button"
-          >
-            <span className="rb-btn-ship-icon" aria-hidden="true">⛵</span>
-            <span className="rb-btn-text">START MISSION 1 &gt;&gt;</span>
-          </button>
-        </div>
+      {/* Action Button Container positioned below poster to prevent text overlap */}
+      <div className="rb-poster-action-overlay">
+        <button
+          id="start-mission-btn"
+          onClick={handleStart}
+          className="rb-start-mission-poster-btn"
+          aria-label="Start Mission 1"
+          type="button"
+        >
+          <span className="rb-btn-ship-icon" aria-hidden="true">⛵</span>
+          <span className="rb-btn-text">START MISSION 1 &gt;&gt;</span>
+        </button>
       </div>
     </div>
   );

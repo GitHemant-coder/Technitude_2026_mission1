@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import { GoldenHelm, CompassRose, PirateShipIcon, CrossedSwords, SmallSkull } from '../components/OrnateIcons';
 import { sound } from '../utils/audio';
 
-export default function LandingScreen({ onBoardShip, initialCrewName = "" }) {
+export default function LandingScreen({
+  onBoardShip,
+  initialCrewName = "",
+  initialCategory = "tech",
+  isCategoryDisabled = false
+}) {
   const [crewName, setCrewName] = useState(initialCrewName);
+  const [category, setCategory] = useState(initialCategory);
   const [errorMsg, setErrorMsg] = useState("");
   const [isShaking, setIsShaking] = useState(false);
 
@@ -20,7 +26,7 @@ export default function LandingScreen({ onBoardShip, initialCrewName = "" }) {
 
     sound.playClick();
     setErrorMsg("");
-    onBoardShip(trimmed);
+    onBoardShip(trimmed, category);
   };
 
   return (
@@ -73,11 +79,12 @@ export default function LandingScreen({ onBoardShip, initialCrewName = "" }) {
         </div>
 
         <p className="parchment-subtext">
-          Every legendary crew needs a name before setting sail.
+          Every legendary crew needs a name and domain background before setting sail.
         </p>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="crew-input-form">
+          {/* Crew Name Input */}
           <div className="wood-input-wrapper">
             <div className="input-ship-icon">
               <PirateShipIcon size={26} />
@@ -96,6 +103,31 @@ export default function LandingScreen({ onBoardShip, initialCrewName = "" }) {
               maxLength={32}
               autoComplete="off"
             />
+          </div>
+
+          {/* Category Dropdown Input */}
+          <div className="domain-selection-container" style={{ width: '100%' }}>
+            <label className="domain-select-label">
+              <span>✦ SELECT CREW BACKGROUND ✦</span>
+            </label>
+            <div className={`wood-input-wrapper ${isCategoryDisabled ? 'disabled' : ''}`}>
+              <div className="input-ship-icon">
+                <CompassRose size={24} />
+              </div>
+              <select
+                id="crew-category-select"
+                className="wood-select-dropdown"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                disabled={isCategoryDisabled}
+              >
+                <option value="tech">TECHNICAL (Tech Background)</option>
+                <option value="non-tech">NON-TECHNICAL (Non-Tech Background)</option>
+              </select>
+            </div>
+            {isCategoryDisabled && (
+              <span className="locked-domain-hint">🔒 Domain locked during active mission</span>
+            )}
           </div>
 
           {errorMsg && (

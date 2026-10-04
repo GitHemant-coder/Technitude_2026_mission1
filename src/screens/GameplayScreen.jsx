@@ -19,6 +19,7 @@ import Header from '../components/Header';
 import { CompassRose, CrossedSwords, SmallSkull, PirateShipIcon } from '../components/OrnateIcons';
 import { Hourglass, AlertCircle } from 'lucide-react';
 import { sound } from '../utils/audio';
+import { deobfuscateString } from '../utils/obfuscate';
 
 const INITIAL_TIME = 120; // 02:00
 const WARNING_SECS = 10;  // last 10 s of CURRENT active window → red
@@ -137,7 +138,8 @@ export default function GameplayScreen({
       return;
     }
 
-    const target = question?.password?.trim()?.toUpperCase() || '';
+    const actualPassword = question?.password || (question?.encryptedPassword ? deobfuscateString(question.encryptedPassword) : '');
+    const target = actualPassword.trim().toUpperCase();
 
     const normEntered = trimmed.replace(/\s+/g, ' ');
     const normTarget  = target.replace(/\s+/g, ' ');
@@ -170,7 +172,9 @@ export default function GameplayScreen({
   const isWarning = timeLeft <= WARNING_SECS && timeLeft > 0;
   const isUrgent  = timeLeft <= 30;
 
-  const letterCount = question?.password ? question.password.replace(/[^A-Za-z0-9]/g, '').length : 0;
+  const resolvedPassword = question?.password || (question?.encryptedPassword ? deobfuscateString(question.encryptedPassword) : '');
+  const letterCount = resolvedPassword ? resolvedPassword.replace(/[^A-Za-z0-9]/g, '').length : 0;
+
 
   return (
     <div className={`screen-gameplay-wrapper ${isUrgent ? 'urgent-atmosphere' : ''}`}>

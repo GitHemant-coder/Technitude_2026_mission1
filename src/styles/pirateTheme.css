@@ -554,6 +554,69 @@
   font-weight: 700;
 }
 
+/* Domain Selection Dropdown */
+.domain-selection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  width: 100%;
+}
+
+.domain-select-label {
+  font-family: var(--font-pirate-sub);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #bfa15f;
+  letter-spacing: 1.5px;
+  margin-left: 2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.wood-select-dropdown {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff2cf;
+  font-family: var(--font-pirate-sub);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.wood-select-dropdown:disabled {
+  cursor: not-allowed;
+  color: #a38c75;
+}
+
+.wood-select-dropdown option {
+  background: #2a150b;
+  color: #fff2cf;
+  font-family: var(--font-pirate-sub);
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.wood-input-wrapper.disabled {
+  opacity: 0.7;
+  border-color: #5c4323;
+  background: linear-gradient(180deg, #120904 0%, #1d0e07 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.9);
+  cursor: not-allowed;
+}
+
+.locked-domain-hint {
+  font-family: var(--font-pirate-parchment);
+  font-size: 0.85rem;
+  color: #d97706;
+  font-weight: 600;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+
 #board-ship-btn {
   width: 100%;
   max-width: 380px;
@@ -1816,11 +1879,13 @@
   width: 100%;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: clamp(12px, 2vh, 28px) clamp(8px, 1.5vw, 20px);
   box-sizing: border-box;
   background: transparent;
+  gap: 14px;
 }
 
 .rb-floating-home-btn {
@@ -1880,16 +1945,19 @@
 }
 
 .rb-poster-action-overlay {
-  position: absolute;
-  bottom: clamp(14px, 2.5%, 30px);
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
   width: 100%;
+  max-width: 900px;
   display: flex;
   justify-content: center;
-  pointer-events: none;
+  align-items: center;
+  padding: 6px 0;
   z-index: 10;
 }
+
 
 .rb-start-mission-poster-btn {
   pointer-events: auto;

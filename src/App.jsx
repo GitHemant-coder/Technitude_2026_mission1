@@ -15,6 +15,8 @@ import { useDisableInspect } from './hooks/useDisableInspect';
 const SK = {
   SCREEN:          'lost_treasure_current_screen',
   CREW_NAME:       'lost_treasure_crew_name',
+  CATEGORY:        'lost_treasure_category',
+  CATEGORY_LOCKED: 'lost_treasure_category_locked',
   QUESTION:        'lost_treasure_current_question',
   START_TIME:      'lost_treasure_start_time',
   COMPLETION_TIME: 'lost_treasure_completion_time',
@@ -51,8 +53,10 @@ export default function App() {
     return VALID_SCREENS.includes(saved) ? saved : 'landing';
   });
 
-  /* ── Crew / game state ─────────────────────────────────────── */
+  /* ── Crew / category / game state ──────────────────────────── */
   const [crewName, setCrewName] = useState(() => load(SK.CREW_NAME, ''));
+  const [category, setCategory] = useState(() => load(SK.CATEGORY, 'tech'));
+  const [isCategoryLocked, setIsCategoryLocked] = useState(() => load(SK.CATEGORY_LOCKED, 'false') === 'true');
   const [question, setQuestion] = useState(() => {
     const v = load(SK.QUESTION);
     if (!v) return null;
@@ -70,7 +74,7 @@ export default function App() {
   // Guard: if screen was left as 'gameplay' but question is missing, safely re-initialize or reset to landing
   useEffect(() => {
     if (screen === 'gameplay' && !question) {
-      const q = getNextQuestion();
+      const q = getNextQuestion(category);
       if (q) {
         setQuestion(q);
         persist(SK.QUESTION, JSON.stringify(q));
@@ -79,7 +83,7 @@ export default function App() {
         persist(SK.SCREEN, 'landing');
       }
     }
-  }, [screen, question]);
+  }, [screen, question, category]);
 
   /* ── Round I results & cumulative penalty ──────────────────── */
   const [completionTime, setCompletionTime]   = useState(() => load(SK.COMPLETION_TIME, ''));
@@ -108,15 +112,22 @@ export default function App() {
   };
 
   /* ── STEP 1 → 2: Board the Ship ───────────────────────────── */
-  const handleBoardShip = (name) => {
+  const handleBoardShip = (name, selectedCategory) => {
+    const cat = selectedCategory || category;
     setCrewName(name);
-    persist(SK.CREW_NAME, name);
+    setCategory(cat);
+    setIsCategoryLocked(true);
+
+    persist(SK.CREW_NAME,       name);
+    persist(SK.CATEGORY,        cat);
+    persist(SK.CATEGORY_LOCKED, 'true');
+
     goTo('briefing');
   };
 
   /* ── STEP 2 → 3: Start Mission (Round I) ──────────────────── */
   const handleStartMission = () => {
-    const selectedQ = getNextQuestion();
+    const selectedQ = getNextQuestion(category);
     const startTime = Date.now();
 
     setQuestion(selectedQ);
@@ -160,9 +171,9 @@ export default function App() {
     try {
       let lb = JSON.parse(localStorage.getItem('lost_treasure_leaderboard') || '[]');
       lb = lb.filter(e => e.crewName !== crewName);
-      // Partial record — Round 2 will overwrite with full data
       lb.push({
         crewName,
+        category,
         round1Time: timeTaken,
         round1Attempts: attempts,
         round1Bonus30Used: false,
@@ -202,6 +213,7 @@ export default function App() {
       lb = lb.filter(e => e.crewName !== crewName);
       lb.push({
         crewName,
+        category,
         round1Time: time,
         round1Attempts: attempts || 0,
         round1Bonus30Used: true,
@@ -230,6 +242,7 @@ export default function App() {
       SK.SCREEN, SK.CREW_NAME, SK.QUESTION, SK.START_TIME,
       SK.COMPLETION_TIME, SK.CRACKED_PW, SK.MISSION_STATUS,
       SK.R1_ATTEMPTS, SK.R1_BONUS, SK.PENALTY_TIME,
+      SK.CATEGORY_LOCKED,
       'lost_treasure_round2_time', 'lost_treasure_round2_attempts',
       'lost_treasure_round2_status'
     ].forEach(remove);
@@ -243,6 +256,7 @@ export default function App() {
     setR1Bonus30Used(false);
     setPenaltyTime(0);
     setMissionStatus(null);
+    setIsCategoryLocked(false); // Enable the dropdown again for next crew!
     setScreen('landing');
   };
 
@@ -267,7 +281,12 @@ export default function App() {
       <div className="app-content-wrapper">
 
         {screen === 'landing' && (
-          <LandingScreen initialCrewName={crewName} onBoardShip={handleBoardShip} />
+          <LandingScreen
+            initialCrewName={crewName}
+            initialCategory={category}
+            isCategoryDisabled={isCategoryLocked}
+            onBoardShip={handleBoardShip}
+          />
         )}
 
         {screen === 'briefing' && (
@@ -329,10 +348,20 @@ export default function App() {
 
         {/* Fallback to LandingScreen if screen is not in valid list or question is loading */}
         {!['landing', 'briefing', 'gameplay', 'success', 'timeout', 'round2', 'leaderboard'].includes(screen) && (
-          <LandingScreen initialCrewName={crewName} onBoardShip={handleBoardShip} />
+          <LandingScreen
+            initialCrewName={crewName}
+            initialCategory={category}
+            isCategoryDisabled={isCategoryLocked}
+            onBoardShip={handleBoardShip}
+          />
         )}
         {screen === 'gameplay' && !question && (
-          <LandingScreen initialCrewName={crewName} onBoardShip={handleBoardShip} />
+          <LandingScreen
+            initialCrewName={crewName}
+            initialCategory={category}
+            isCategoryDisabled={isCategoryLocked}
+            onBoardShip={handleBoardShip}
+          />
         )}
 
       </div>

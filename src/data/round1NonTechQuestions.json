@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "password": "BERMUDA",
+    "clues": [
+      "I am associated with a region where stories of unexplained disappearances have fascinated people for decades.",
+      "I am not the name of a ship, person, or creature.",
+      "My mystery is connected with both the Atlantic Ocean and popular legends.",
+      "Ships and aircraft are traditionally said to have disappeared within the region associated with me.",
+      "My second word in the famous phrase is Triangle.",
+      "My password has 7 letters and is the first word of that famous mysterious region."
+    ]
+  },
+  {
+    "id": 2,
+    "password": "BLACK HOLE",
+    "clues": [
+      "I am a region where ordinary intuition about space and time begins to break down.",
+      "My gravitational influence becomes so extreme that escaping becomes impossible beyond a certain boundary.",
+      "That boundary is known as the event horizon.",
+      "I am not simply an empty hole in space.",
+      "Even light cannot escape once it passes my event horizon.",
+      "My password contains two words and is one of the most famous phenomena in astronomy."
+    ]
+  },
+  {
+    "id": 3,
+    "password": "SILK ROAD",
+    "clues": [
+      "I was not a single road.",
+      "I connected distant regions across a vast part of Asia and beyond.",
+      "Merchants travelled along networks associated with me for centuries.",
+      "I helped exchange not only goods but also ideas, cultures and technologies.",
+      "One luxury product became so strongly associated with these trade networks that it gave me my famous name.",
+      "My password contains two words and refers to one of history's most famous trading networks."
+    ]
+  },
+  {
+    "id": 4,
+    "password": "BLACK BOX",
+    "clues": [
+      "You can understand what I do without knowing every detail of how I work internally.",
+      "You provide inputs and observe the outputs.",
+      "My internal implementation may be hidden or unknown.",
+      "I am used as a testing approach in software engineering.",
+      "Testers can use me to verify functionality against requirements.",
+      "My password contains two words and describes a system examined through its inputs and outputs."
+    ]
+  },
+  {
+    "id": 5,
+    "password": "DRAGON",
+    "clues": [
+      "I am a legendary creature said to guard hidden treasures.",
+      "I appear in stories from many different cultures.",
+      "I am often depicted with wings and scales.",
+      "I can breathe fire in many Western legends.",
+      "Knights in fantasy stories often fight me.",
+      "I am a mythical fire-breathing creature."
+    ]
+  }
+]

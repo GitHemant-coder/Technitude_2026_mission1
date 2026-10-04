@@ -1,0 +1,206 @@
+[
+  {
+    "id": 1,
+    "password": "RACE CONDITION",
+    "clues": [
+      "My outcome can change depending on who gets there first.",
+      "I usually appear when multiple processes or threads access shared data.",
+      "The problem becomes dangerous when at least one operation modifies the shared resource.",
+      "Two executions of the same program can produce different results because of me.",
+      "Locks, mutexes and synchronization mechanisms can help prevent me.",
+      "My password has 13 letters including the space and describes a timing-dependent concurrency problem."
+    ]
+  },
+  {
+    "id": 2,
+    "password": "DOCKER",
+    "clues": [
+      "I help developers package applications along with their dependencies.",
+      "I make it easier for software to run consistently across different environments.",
+      "I use images as blueprints for creating running instances.",
+      "My containers share the host operating system's kernel.",
+      "I am widely used in DevOps and software deployment.",
+      "My password has 6 letters and is the name of a popular containerization platform."
+    ]
+  },
+  {
+    "id": 3,
+    "password": "KUBERNETES",
+    "clues": [
+      "I help manage applications that are packaged into lightweight, isolated environments.",
+      "I can automatically scale applications when demand changes.",
+      "I can restart failed application instances and distribute workloads across machines.",
+      "My name is often shortened to K8s.",
+      "Google originally developed the technology behind me before it became an open-source project.",
+      "My password has 10 letters and I am widely associated with container orchestration."
+    ]
+  },
+  {
+    "id": 4,
+    "password": "PHISHING",
+    "clues": [
+      "I am a technique used by cybercriminals to deceive people.",
+      "I often arrive through emails, text messages, or fake websites.",
+      "I may imitate a bank, company, or trusted individual.",
+      "My goal may be to steal passwords, financial details, or personal information.",
+      "Checking suspicious links and verifying senders can help people avoid me.",
+      "My password has 8 letters and describes a common social engineering attack."
+    ]
+  },
+  {
+    "id": 5,
+    "password": "TCP HANDSHAKE",
+    "clues": [
+      "I happen before reliable data transfer begins.",
+      "I involve communication between two endpoints.",
+      "I establish that both sides are ready to communicate.",
+      "I involve the exchange of SYN and ACK messages.",
+      "The classic process is commonly described as a three-step exchange.",
+      "My password contains two words and is associated with establishing a TCP connection."
+    ]
+  },
+  {
+    "id": 6,
+    "password": "DEADLOCK",
+    "clues": [
+      "I can bring a computer program to a standstill.",
+      "I often occur when multiple processes compete for resources.",
+      "Each process may hold a resource while waiting for another.",
+      "Circular waiting is one of the conditions associated with me.",
+      "Resource allocation strategies can help prevent or avoid me.",
+      "My password has 7 letters and describes a situation in which processes are permanently waiting for one another."
+    ]
+  },
+  {
+    "id": 7,
+    "password": "TROJAN HORSE",
+    "clues": [
+      "I take my name from a famous story in ancient Greek mythology.",
+      "In computing, I disguise myself as something legitimate or useful.",
+      "A user may unknowingly install or execute me.",
+      "Unlike a computer virus, I do not necessarily replicate by infecting other files.",
+      "I can be used to steal information or provide unauthorized access.",
+      "My password contains two words and names a type of deceptive malware."
+    ]
+  },
+  {
+    "id": 8,
+    "password": "PUBLIC KEY",
+    "clues": [
+      "I belong to a cryptographic system where two mathematically related keys are used.",
+      "One key can be distributed openly without keeping it secret.",
+      "The other key must remain confidential.",
+      "RSA and ECC are examples of cryptographic systems associated with me.",
+      "I can be used for encryption as well as concepts such as digital signatures.",
+      "My password contains two words and describes the key that can safely be shared with others."
+    ]
+  },
+  {
+    "id": 9,
+    "password": "DARK WEB",
+    "clues": [
+      "I am a part of the internet that ordinary search engines generally do not index.",
+      "Accessing me typically requires specialized software or configurations.",
+      "Some people use me to communicate with greater anonymity.",
+      "I have legitimate uses, but I am also associated with illegal online marketplaces.",
+      "I am often confused with the deep web, although the two terms are not identical.",
+      "My password contains two words and refers to a hidden part of the internet."
+    ]
+  },
+  {
+    "id": 10,
+    "password": "LOAD BALANCER",
+    "clues": [
+      "I stand between users and multiple servers.",
+      "My purpose is not to store the application's permanent data.",
+      "I distribute incoming requests among available servers.",
+      "I can help prevent one server from becoming overwhelmed while others remain underused.",
+      "Some of my strategies include round-robin, least connections and weighted distribution.",
+      "My password has 12 letters excluding the space and is important in scalable web applications."
+    ]
+  },
+  {
+    "id": 11,
+    "password": "VIRTUALIZATION",
+    "clues": [
+      "I allow one physical computing system to behave as if it were several independent systems.",
+      "The physical machine is commonly called the host, while the simulated systems are called guests.",
+      "A software layer called a hypervisor makes me possible.",
+      "I allow different operating systems to run on the same physical hardware.",
+      "Cloud platforms heavily rely on technologies based on this concept.",
+      "My password has 14 letters and is fundamental to modern cloud infrastructure."
+    ]
+  },
+  {
+    "id": 12,
+    "password": "HONEYPOT",
+    "clues": [
+      "I am a security mechanism designed to attract suspicious activity.",
+      "I may imitate a real server, database, or network service.",
+      "My main purpose is observation rather than serving ordinary users.",
+      "Security teams can study attackers through the activity I capture.",
+      "I can help researchers understand attack techniques and behavior.",
+      "My password has 8 letters and is named after something sweet that attracts insects."
+    ]
+  },
+  {
+    "id": 13,
+    "password": "BRUTEFORCE",
+    "clues": [
+      "I am an attack involving repeated attempts to discover a secret.",
+      "I do not necessarily require knowledge of the correct answer beforehand.",
+      "Computers can automate large numbers of attempts.",
+      "I can target passwords, PINs, encryption keys, or other secrets.",
+      "Strong and complex passwords make me considerably harder to perform successfully.",
+      "My name describes trying every possible combination until one works."
+    ]
+  },
+  {
+    "id": 14,
+    "password": "BOTNET",
+    "clues": [
+      "I am a collection of compromised devices controlled remotely.",
+      "Individual devices may belong to unsuspecting users.",
+      "The devices can communicate with an attacker or command system.",
+      "Thousands of devices can act together as a single coordinated force.",
+      "I can be used for activities such as large-scale traffic attacks or spam.",
+      "My name combines a machine-controlled network with an automated worker."
+    ]
+  },
+  {
+    "id": 15,
+    "password": "BACKDOOR",
+    "clues": [
+      "I am a hidden method of entering a system.",
+      "I may bypass normal authentication mechanisms.",
+      "I can provide unauthorized remote access.",
+      "Developers sometimes accidentally leave one behind.",
+      "Attackers may deliberately create one after compromising a system.",
+      "My name describes an entrance that is not the normal front door."
+    ]
+  },
+  {
+    "id": 16,
+    "password": "HASHING",
+    "clues": [
+      "I am a method of verifying that information has not been altered.",
+      "I usually produce a fixed-size result from input of varying sizes.",
+      "The same input normally produces the same result.",
+      "Even a tiny input change can produce a very different result.",
+      "Password storage and file integrity verification can use me.",
+      "My name describes transforming data into a condensed mathematical representation."
+    ]
+  },
+  {
+    "id": 17,
+    "password": "WORM",
+    "clues": [
+      "I am a malicious program designed to replicate itself.",
+      "I can spread without requiring the victim to manually install every copy.",
+      "Network vulnerabilities can accelerate my spread.",
+      "I can move from one compromised computer to another.",
+      "Large-scale outbreaks can occur quickly when many vulnerable systems are connected.",
+      "My name is shared with a creature known for spreading through environments."
+    ]
+  }
+]
